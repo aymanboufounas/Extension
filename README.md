@@ -1,6 +1,6 @@
 # PyBMS Tools for VS Code
 
-![PyBMS logo](assets/icon.png)
+![PyBMS logo](https://raw.githubusercontent.com/aymanboufounas/Extension/main/assets/icon.png)
 
 **A practical VS Code extension for [Pybms](https://github.com/aymanboufounas/Pybms)**, a beginner-friendly Python data science and machine learning framework (currently alpha, v0.2.0).
 
@@ -62,7 +62,7 @@ npm test
 python scripts/package_vsix.py
 ```
 
-The packaging script writes `dist/pybms-tools-0.1.1.vsix`. For the standard Microsoft packaging path, you can instead run `npx @vscode/vsce package` (requires network access). It includes an icon, marketplace manifest, README and license.
+The packaging script writes `dist/pybms-tools-0.1.2.vsix`. For the standard Microsoft packaging path, you can instead run `npx @vscode/vsce package` (requires network access). It includes an icon, marketplace manifest, README and license.
 
 To install a VSIX locally, open VS Code Extensions, choose `...` → **Install from VSIX**, and select the `.vsix` file. Upload the same VSIX from your [Visual Studio Marketplace publisher portal](https://marketplace.visualstudio.com/manage/publishers/).
 
