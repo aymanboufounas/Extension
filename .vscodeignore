@@ -1,0 +1,8 @@
+.git/**
+.github/**
+.vscode/**
+tests/**
+node_modules/**
+*.vsix
+*.zip
+.pytest_cache/**

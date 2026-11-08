@@ -1,0 +1,9 @@
+{
+  "PyBMS import": {"prefix":"pbimport","body":["import pybms as pb"],"description":"Import PyBMS as pb"},
+  "PyBMS AutoML": {"prefix":"pbauto","body":["import pybms as pb","data = pb.load_data('${1:iris}')","result = pb.auto_train(data, target='${2:target}')","print(result.metrics)","print(result.leaderboard)"],"description":"Load a dataset, train and evaluate a tabular model"},
+  "PyBMS Cleaning": {"prefix":"pbclean","body":["cleaned, report = pb.clean_data(${1:data}, report=True)","print(report)"],"description":"Clean data and show report"},
+  "PyBMS Dataset": {"prefix":"pbdata","body":["data = pb.load_data('${1:data.csv}')","print(pb.describe_data(data))"],"description":"Load and inspect data"},
+  "PyBMS Neural Net": {"prefix":"pbnet","body":["model = pb.Sequential([","    pb.Dense(${1:8}, activation='relu'),","    pb.Dense(${2:1}, activation='sigmoid'),","], seed=7)","model.compile(optimizer='adam', loss='binary_crossentropy')","model.fit(${3:X}, ${4:y}, epochs=${5:100})"],"description":"Create a NumPy dense network"},
+  "PyBMS Plot": {"prefix":"pbplot","body":["ax = pb.hist_plot(${1:data})","ax.figure.savefig('${2:histogram.png}', dpi=150)"],"description":"Save a histogram plot"},
+  "PyBMS Save Model": {"prefix":"pbsave","body":["pb.save_model(${1:model}, '${2:network.npz}')"],"description":"Save a native PyBMS model"}
+}
