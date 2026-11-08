@@ -50,7 +50,7 @@ On Windows, a manually selected interpreter can be `C:\\Python313\\python.exe`. 
 - Syntax diagnostics use the Python parser. The syntax repair feature imports an installed PyBMS and calls `fix_syntax`; the source is sent through stdin and is **not run**. The diff and confirmation allow review of all changes.
 - Some functions show a short fallback signature in the offline sidebar (`name(...)`). For the exact signature, use the [complete PyBMS API reference](https://github.com/aymanboufounas/Pybms/blob/main/docs/API_REFERENCE.md) or `python -m pybms help <name>`.
 - PyBMS 0.2.0 is an **alpha** framework. The recipes are illustrative, not assurances of model quality. Avoid training/test leakage; use appropriate group/time-series validation where needed. Only load trusted `.joblib` artifacts.
-- The publisher ID in `package.json` is `aymanboufounas`. If your actual Visual Studio Marketplace publisher ID is different, change this field before packaging/publishing.
+- The publisher ID in `package.json` is `aymanbms`, matching the official publisher account used to upload this extension.
 
 ## Build / packaging
 
@@ -62,7 +62,7 @@ npm test
 python scripts/package_vsix.py
 ```
 
-The packaging script writes `dist/pybms-tools-0.1.0.vsix`. For the standard Microsoft packaging path, you can instead run `npx @vscode/vsce package` (requires network access). It includes an icon, marketplace manifest, README and license.
+The packaging script writes `dist/pybms-tools-0.1.1.vsix`. For the standard Microsoft packaging path, you can instead run `npx @vscode/vsce package` (requires network access). It includes an icon, marketplace manifest, README and license.
 
 To install a VSIX locally, open VS Code Extensions, choose `...` → **Install from VSIX**, and select the `.vsix` file. Upload the same VSIX from your [Visual Studio Marketplace publisher portal](https://marketplace.visualstudio.com/manage/publishers/).
 
