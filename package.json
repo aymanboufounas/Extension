@@ -2,7 +2,7 @@
   "name": "pybms-tools",
   "displayName": "PyBMS Tools",
   "description": "VS Code companion for the PyBMS data science and machine learning framework: 100 API completions, explorer, recipes, environment checks and reviewable syntax repair.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "aymanbms",
   "license": "MIT",
   "author": {
