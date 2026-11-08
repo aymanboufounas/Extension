@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-11-08
+
+- Fixed the Visual Studio Marketplace publisher ID to `aymanbms`.
+- Rebuilt VSIX manifest so its publisher matches the publishing account.
+
 ## 0.1.0 — 2026-11-08
 
 - Initial PyBMS framework companion extension.
