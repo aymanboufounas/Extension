@@ -2,46 +2,168 @@
   "name": "pybms-tools",
   "displayName": "PyBMS Tools",
   "description": "VS Code companion for the PyBMS data science and machine learning framework: 100 API completions, explorer, recipes, environment checks and reviewable syntax repair.",
-  "version": "0.1.0",
-  "publisher": "aymanboufounas",
+  "version": "0.1.1",
+  "publisher": "aymanbms",
   "license": "MIT",
-  "author": {"name":"Ayman Boufounas"},
+  "author": {
+    "name": "Ayman Boufounas"
+  },
   "icon": "assets/icon.png",
-  "engines": {"vscode":"^1.85.0"},
-  "categories": ["Programming Languages","Data Science","Machine Learning","Other"],
-  "keywords": ["pybms","machine learning","automl","python","numpy","data science","syntax"],
-  "repository": {"type":"git","url":"https://github.com/aymanboufounas/Extension.git"},
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Data Science",
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "pybms",
+    "machine learning",
+    "automl",
+    "python",
+    "numpy",
+    "data science",
+    "syntax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aymanboufounas/Extension.git"
+  },
   "homepage": "https://github.com/aymanboufounas/Pybms",
-  "bugs": {"url":"https://github.com/aymanboufounas/Extension/issues"},
+  "bugs": {
+    "url": "https://github.com/aymanboufounas/Extension/issues"
+  },
   "main": "./src/extension.js",
-  "activationEvents": ["onLanguage:python","onView:pybms.catalog","onCommand:pybms.getStarted"],
+  "activationEvents": [
+    "onLanguage:python",
+    "onView:pybms.catalog",
+    "onCommand:pybms.getStarted"
+  ],
   "contributes": {
-    "viewsContainers": {"activitybar":[{"id":"pybms","title":"PyBMS","icon":"assets/pybms.svg"}]},
-    "views": {"pybms":[{"id":"pybms.catalog","name":"100 Workflow Functions"}]},
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pybms",
+          "title": "PyBMS",
+          "icon": "assets/pybms.svg"
+        }
+      ]
+    },
+    "views": {
+      "pybms": [
+        {
+          "id": "pybms.catalog",
+          "name": "100 Workflow Functions"
+        }
+      ]
+    },
     "commands": [
-      {"command":"pybms.getStarted","title":"PyBMS: Get Started","icon":"$(rocket)"},
-      {"command":"pybms.newProject","title":"PyBMS: Create Starter Project","icon":"$(new-folder)"},
-      {"command":"pybms.insertRecipe","title":"PyBMS: Insert Recipe","icon":"$(code)"},
-      {"command":"pybms.openExample","title":"PyBMS: Create Example File","icon":"$(new-file)"},
-      {"command":"pybms.insertFunction","title":"PyBMS: Insert Function","icon":"$(add)"},
-      {"command":"pybms.showFunctionHelp","title":"PyBMS: Function Help","icon":"$(book)"},
-      {"command":"pybms.install","title":"PyBMS: Install or Update Framework","icon":"$(cloud-download)"},
-      {"command":"pybms.environment","title":"PyBMS: Check Environment","icon":"$(check)"},
-      {"command":"pybms.runFile","title":"PyBMS: Run Current Python File","icon":"$(play)"},
-      {"command":"pybms.checkSyntax","title":"PyBMS: Check Python Syntax","icon":"$(checklist)"},
-      {"command":"pybms.fixSyntax","title":"PyBMS: Preview Syntax Repair","icon":"$(diff)"},
-      {"command":"pybms.openDocs","title":"PyBMS: Open Framework Documentation","icon":"$(link-external)"}
+      {
+        "command": "pybms.getStarted",
+        "title": "PyBMS: Get Started",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "pybms.newProject",
+        "title": "PyBMS: Create Starter Project",
+        "icon": "$(new-folder)"
+      },
+      {
+        "command": "pybms.insertRecipe",
+        "title": "PyBMS: Insert Recipe",
+        "icon": "$(code)"
+      },
+      {
+        "command": "pybms.openExample",
+        "title": "PyBMS: Create Example File",
+        "icon": "$(new-file)"
+      },
+      {
+        "command": "pybms.insertFunction",
+        "title": "PyBMS: Insert Function",
+        "icon": "$(add)"
+      },
+      {
+        "command": "pybms.showFunctionHelp",
+        "title": "PyBMS: Function Help",
+        "icon": "$(book)"
+      },
+      {
+        "command": "pybms.install",
+        "title": "PyBMS: Install or Update Framework",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "pybms.environment",
+        "title": "PyBMS: Check Environment",
+        "icon": "$(check)"
+      },
+      {
+        "command": "pybms.runFile",
+        "title": "PyBMS: Run Current Python File",
+        "icon": "$(play)"
+      },
+      {
+        "command": "pybms.checkSyntax",
+        "title": "PyBMS: Check Python Syntax",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "pybms.fixSyntax",
+        "title": "PyBMS: Preview Syntax Repair",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "pybms.openDocs",
+        "title": "PyBMS: Open Framework Documentation",
+        "icon": "$(link-external)"
+      }
     ],
-    "menus":{"view/title":[{"command":"pybms.insertRecipe","when":"view == pybms.catalog","group":"navigation"},{"command":"pybms.getStarted","when":"view == pybms.catalog","group":"navigation"}]},
+    "menus": {
+      "view/title": [
+        {
+          "command": "pybms.insertRecipe",
+          "when": "view == pybms.catalog",
+          "group": "navigation"
+        },
+        {
+          "command": "pybms.getStarted",
+          "when": "view == pybms.catalog",
+          "group": "navigation"
+        }
+      ]
+    },
     "configuration": {
-      "title":"PyBMS",
+      "title": "PyBMS",
       "properties": {
-        "pybms.pythonPath":{"type":"string","default":"python","description":"Python executable. A workspace .venv interpreter is auto-detected when this is left at python."},
-        "pybms.enableSyntaxDiagnostics":{"type":"boolean","default":true,"description":"On save, check Python syntax in files that import PyBMS. Never executes the file."},
-        "pybms.completions":{"type":"boolean","default":true,"description":"Show PyBMS workflow autocomplete after a PyBMS import alias."}
+        "pybms.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable. A workspace .venv interpreter is auto-detected when this is left at python."
+        },
+        "pybms.enableSyntaxDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "On save, check Python syntax in files that import PyBMS. Never executes the file."
+        },
+        "pybms.completions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show PyBMS workflow autocomplete after a PyBMS import alias."
+        }
       }
     },
-    "snippets":[{"language":"python","path":"./snippets/pybms.code-snippets"}]
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/pybms.code-snippets"
+      }
+    ]
   },
-  "scripts":{"test":"node --test tests/*.test.js","check":"node --check src/extension.js && node --check src/catalog.js && node --check src/templates.js && npm test"}
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/extension.js && node --check src/catalog.js && node --check src/templates.js && npm test"
+  }
 }
