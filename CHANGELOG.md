@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-11-08
+
+- Corrected VSIX Open Packaging content type for the extensionless `LICENSE` file, fixing Marketplace upload error.
+- Added validation for all declared VSIX assets, publisher ID and license MIME type.
+- Replaced Marketplace README relative logo image with an HTTPS image URL.
+
 ## 0.1.1 — 2026-11-08
 
 - Fixed the Visual Studio Marketplace publisher ID to `aymanbms`.
