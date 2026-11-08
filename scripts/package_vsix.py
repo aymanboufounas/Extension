@@ -65,6 +65,9 @@ ET.register_namespace('', CONTENT_NS)
 ct=ET.Element(f'{{{CONTENT_NS}}}Types')
 for ext, ctype in [('json','application/json'),('js','application/javascript'),('md','text/markdown'),('png','image/png'),('svg','image/svg+xml'),('txt','text/plain'),('code-snippets','application/json')]:
     ET.SubElement(ct,f'{{{CONTENT_NS}}}Default',{'Extension':ext,'ContentType':ctype})
+# OPC requires an explicit content type for extensionless assets such as LICENSE.
+# Otherwise Marketplace reports them as missing even though they are in the ZIP.
+ET.SubElement(ct,f'{{{CONTENT_NS}}}Override',{'PartName':'/extension/LICENSE','ContentType':'text/plain'})
 ET.SubElement(ct,f'{{{CONTENT_NS}}}Override',{'PartName':'/extension.vsixmanifest','ContentType':'text/xml'})
 content_xml=ET.tostring(ct,encoding='utf-8',xml_declaration=True)
 TARGET.parent.mkdir(exist_ok=True)
@@ -80,4 +83,10 @@ with zipfile.ZipFile(TARGET) as z:
     if bad:raise SystemExit(f'Corrupt archive entry: {bad}')
     ET.fromstring(z.read('extension.vsixmanifest'))
     assert 'extension/package.json' in z.namelist()
+    paths = {item.attrib['Path'] for item in ET.fromstring(z.read('extension.vsixmanifest')).find(f'{{{MANIFEST_NS}}}Assets')}
+    assert paths <= set(z.namelist()), f'Missing declared assets: {paths - set(z.namelist())}'
+    types = ET.fromstring(z.read('[Content_Types].xml'))
+    overrides = {item.attrib['PartName']: item.attrib['ContentType'] for item in types.findall(f'{{{CONTENT_NS}}}Override')}
+    assert overrides.get('/extension/LICENSE') == 'text/plain', 'LICENSE requires a content-type override'
+    assert pkg['publisher'] == 'aymanbms'
 print(f'VSIX created: {TARGET} ({TARGET.stat().st_size:,} bytes)')
